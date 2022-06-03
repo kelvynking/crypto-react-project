@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import CoinCard from "./CoinCard";
 
 function CoinCards(props) {
   const history = useHistory();

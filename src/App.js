@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Home from "./components/Home";
-import CoinCards from "./components/CoinCards";
 import CoinCard from "./components/CoinCard";
 import CreateComment from "./components/CreateComment";
 import RenderComments from "./components/RenderComments";
