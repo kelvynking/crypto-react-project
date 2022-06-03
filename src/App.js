@@ -43,7 +43,9 @@ function App() {
           Comments Page
         </Link>
         {!isAuth ? (
-          <Link to="/Login">Login</Link>
+          <Link className="btn btn-sm btn-success mx-2" to="/Login">
+            Login
+          </Link>
         ) : (
           <>
             <Link

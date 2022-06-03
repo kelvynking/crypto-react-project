@@ -6,6 +6,7 @@ function CoinCard() {
   let { id } = useParams();
 
   const [getCoinData, setGetCoinData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -24,12 +25,20 @@ function CoinCard() {
       .then((data) => {
         const results = data.data.coin;
         setGetCoinData(results);
+        setIsLoading(false);
       })
       .catch((err) => console.error(err));
   }, []);
-  //   console.log(results);
 
   const coin = getCoinData;
+
+  if (isLoading) {
+    return (
+      <div className="container-fluid p-3">
+        <p>Loading ...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container-fluid p-3">

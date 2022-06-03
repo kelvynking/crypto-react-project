@@ -11,9 +11,11 @@ function Login({ setIsAuth }) {
     });
   };
   return (
-    <div>
-      <p>Sign In With Google to Continue</p>
-      <button onClick={signInWithGoogle}>Sign In with Google</button>
+    <div className="container-fluid p-3">
+      <h5 className="fw-bold mb-3">Sign In With Google to Continue</h5>
+      <button className="btn btn-small btn-success" onClick={signInWithGoogle}>
+        Sign In with Google
+      </button>
     </div>
   );
 }
