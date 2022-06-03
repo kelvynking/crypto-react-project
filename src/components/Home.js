@@ -1,0 +1,45 @@
+import React, { useState, useEffect } from "react";
+import CoinCards from "./CoinCards";
+
+function Home() {
+  const [getData, setGetData] = useState([]);
+
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+        "X-RapidAPI-Key": "1de65fd4dcmsh1d9c530d04ab73bp127509jsn52b43fc85331",
+      },
+    };
+
+    fetch(
+      "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0",
+      options
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const results = data.data.coins;
+        setGetData(results);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  return (
+    <div>
+      <div>
+        {getData.map((data) => (
+          <CoinCards
+            key={data.uuid}
+            id={data.uuid}
+            name={data.name}
+            image={data.iconUrl}
+            ranking={data.coinrankingUrl}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+export default Home;
