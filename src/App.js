@@ -23,16 +23,45 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/coincard/:id">Crypto</Link>
-        <Link to="/commentlist">Comments Page</Link>
+      <nav className="navbar bg-dark">
+        <a class="navbar-brand text-white ms-3" href="#">
+          Crypto Info
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <Link to="/" className="btn btn-sm btn-outline-secondary mx-2">
+              Home
+            </Link>
+          </li>
+        </ul>
+        <Link
+          to="/coincard/:id"
+          className="btn btn-sm btn-outline-secondary mx-2"
+        >
+          Crypto
+        </Link>
+        <Link
+          to="/commentlist"
+          className="btn btn-sm btn-outline-secondary mx-2"
+        >
+          Comments Page
+        </Link>
         {!isAuth ? (
           <Link to="/Login">Login</Link>
         ) : (
           <>
-            <Link to="/comment">Post Comment</Link>
-            <button onClick={signOutUser}>Logout</button>
+            <Link
+              to="/comment"
+              className="btn btn-sm btn-outline-secondary mx-2"
+            >
+              Post Comment
+            </Link>
+            <button
+              onClick={signOutUser}
+              className="btn btn-sm btn-success mx-2"
+            >
+              Logout
+            </button>
           </>
         )}
       </nav>
