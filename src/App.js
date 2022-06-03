@@ -6,6 +6,7 @@ import CoinCard from "./components/CoinCard";
 import CreateComment from "./components/CreateComment";
 import RenderComments from "./components/RenderComments";
 import Login from "./components/Login";
+import About from "./components/About";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
@@ -24,21 +25,16 @@ function App() {
   return (
     <Router>
       <nav className="navbar bg-dark">
-        <a class="navbar-brand text-white ms-3" href="#">
-          Crypto Info
-        </a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+        <div className="navbar-brand text-white ms-3">Crypto Info</div>
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
             <Link to="/" className="btn btn-sm btn-outline-secondary mx-2">
               Home
             </Link>
           </li>
         </ul>
-        <Link
-          to="/coincard/:id"
-          className="btn btn-sm btn-outline-secondary mx-2"
-        >
-          Crypto
+        <Link to="/about" className="btn btn-sm btn-outline-secondary mx-2">
+          About
         </Link>
         <Link
           to="/commentlist"
@@ -76,6 +72,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login setIsAuth={setIsAuth} />
+        </Route>
+        <Route exact path="/about">
+          <About />
         </Route>
       </Switch>
     </Router>

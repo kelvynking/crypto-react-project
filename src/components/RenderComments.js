@@ -24,25 +24,27 @@ function RenderComments({ isAuth }) {
     <div className="renderComments">
       {commentCollection.map((comment) => {
         return (
-          <div className="comment" key={comment.id}>
-            <div className="commentHeader">
-              <div className="title">
-                <h1>{comment.title}</h1>
+          <div className="container-fluid p-3">
+            <div className="comment" key={comment.id}>
+              <div className="commentHeader">
+                <div className="title">
+                  <h1>{comment.title}</h1>
+                </div>
+                <div className="deleteComment">
+                  {isAuth && comment.author.id === auth.currentUser.id && (
+                    <button
+                      onClick={() => {
+                        deleteComment(comment.id);
+                      }}
+                    >
+                      X
+                    </button>
+                  )}
+                </div>
               </div>
-              <div className="deleteComment">
-                {isAuth && comment.author.id === auth.currentUser.id && (
-                  <button
-                    onClick={() => {
-                      deleteComment(comment.id);
-                    }}
-                  >
-                    X
-                  </button>
-                )}
-              </div>
+              <div className="commentTextContainer"> {comment.comment}</div>
+              <h3>@{comment.author.name}</h3>
             </div>
-            <div className="commentTextContainer"> {comment.comment}</div>
-            <h3>@{comment.author.name}</h3>
           </div>
         );
       })}

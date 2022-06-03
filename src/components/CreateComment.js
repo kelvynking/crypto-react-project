@@ -26,28 +26,30 @@ function CreateComment({ isAuth }) {
   }, []);
 
   return (
-    <div className="createCommentPage">
-      <div className="ccContainer">
-        <h1>Create A Comment</h1>
-        <div className="inputDivs">
-          <label>Title:</label>
-          <input
-            placeholder="Title..."
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
+    <div className="container-fluid p-3">
+      <div className="createCommentPage">
+        <div className="ccContainer">
+          <h1>Create A Comment</h1>
+          <div className="inputDivs">
+            <label>Title:</label>
+            <input
+              placeholder="Title..."
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </div>
+          <div className="inputDivs">
+            <label>Comment:</label>
+            <textarea
+              placeholder="Enter Text Here..."
+              onChange={(event) => {
+                setComment(event.target.value);
+              }}
+            />
+          </div>
+          <button onClick={createComment}> Submit Comment</button>
         </div>
-        <div className="inputDivs">
-          <label>Comment:</label>
-          <textarea
-            placeholder="Enter Text Here..."
-            onChange={(event) => {
-              setComment(event.target.value);
-            }}
-          />
-        </div>
-        <button onClick={createComment}> Submit Comment</button>
       </div>
     </div>
   );

@@ -27,8 +27,8 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="container-fluid p-3">
+      <div class="row row-cols-3 gx-3 gy-3">
         {getData.map((data) => (
           <CoinCards
             key={data.uuid}

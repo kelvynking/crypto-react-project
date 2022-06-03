@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import parse from "html-react-parser";
 
 function CoinCard() {
   let { id } = useParams();
@@ -31,13 +32,14 @@ function CoinCard() {
   const coin = getCoinData;
 
   return (
-    <div>
-      <div>
-        <h1>{coin.name}</h1>
-        <img src={coin.iconUrl} alt={coin.name} width="100" />
-        <h3>{coin.symbol}</h3>
-        <p>{coin.description}</p>;
-      </div>
+    <div className="container-fluid p-3">
+      <h1 className="mb-3">{coin.name}</h1>
+      <img className="mb-3" src={coin.iconUrl} alt={coin.name} width="100" />
+      <h3>Coin Symbol: {coin.symbol}</h3>
+      {parse(coin.description)}
+      <Link className="btn btn-outline-primary btn-sm my-3" to="/">
+        Return to home page
+      </Link>
     </div>
   );
 }
